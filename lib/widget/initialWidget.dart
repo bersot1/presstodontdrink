@@ -4,12 +4,15 @@ import 'button.widget.dart';
 import 'input.widget.dart';
 
 class Initial extends StatelessWidget {
-  var playerA = "";
-  var playerB = "";
+  var playerACtrl = TextEditingController();
+  var playerBCtrl = TextEditingController();
+
+  String pA;
+  String pB;
+
   Function func;
 
-  Initial(
-      {@required this.func, @required this.playerA, @required this.playerB});
+  Initial({@required this.pA, @required this.pB, @required this.func});
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +41,11 @@ class Initial extends StatelessWidget {
                   ),
                   Input(
                     label: "Jogador A: ",
-                    player: playerA,
+                    namePlayer: pA,
                   ),
                   Input(
                     label: "Jogador B: ",
-                    player: playerB,
+                    namePlayer: pB,
                   ),
                   ButtonWidget(
                     label: "Começar",

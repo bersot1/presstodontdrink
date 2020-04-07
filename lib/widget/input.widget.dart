@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Input extends StatelessWidget {
-  TextEditingController playerController = new TextEditingController();
-
   var label = "";
-  var player = "";
 
-  Input({@required this.label, @required this.player});
+  final TextEditingController namePlayer = new TextEditingController();
+
+  String result = "";
+  String player;
+
+  Input({@required this.label, @required namePlayer});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,12 @@ class Input extends StatelessWidget {
           width: 20,
         ),
         Expanded(
-            child: TextFormField(
+            child: TextField(
+          controller: namePlayer,
+          onSubmitted: (player) {
+            result = player;
+          },
           keyboardType: TextInputType.text,
-          controller: playerController,
           style: TextStyle(
               color: Colors.orange,
               fontSize: 45,

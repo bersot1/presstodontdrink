@@ -14,16 +14,24 @@ class _HomePageState extends State<HomePage> {
   var whoWinner = "";
   var initial = true;
 
-  var _playerA = new TextEditingController();
-  var _playerB = new TextEditingController();
+  var teste = "Gabr";
+
+  String _pA;
+  String _pB;
+
+  var labelButtonA;
+  var labelButtonB;
+
+  final _playerA = TextEditingController();
+  final _playerB = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return initial
         ? Initial(
             func: startGame,
-            playerA: _playerA.text,
-            playerB: _playerB.text,
+            pA: _pA,
+            pB: _pB,
           )
         : Scaffold(
             backgroundColor: Theme.of(context).primaryColor,
@@ -31,8 +39,8 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 winner
                     ? BlocGame(
-                        labelButtonA: ">",
-                        labelButtonB: "<",
+                        labelButtonA: "<",
+                        labelButtonB: ">",
                         funcButtonA: () => calculateButton(0.1),
                         funcButtonB: () => calculateButton(-0.1),
                         valueProgressBar: valueProgressBar,
@@ -74,9 +82,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   startGame() {
+    print(teste);
     setState(() {
-      initial = !initial;
-      print(_playerA.text);
+      teste = _playerA.text;
+      print(teste);
     });
   }
 }
