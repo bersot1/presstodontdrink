@@ -35,7 +35,7 @@ class Main extends StatelessWidget {
       title: 'Tap To Do Not Drink',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.orange,
       ),
       home: InitialPage(),
     );
