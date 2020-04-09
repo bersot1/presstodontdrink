@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:taptodontdrink/bloc/game-bloc.dart';
 import 'package:taptodontdrink/pages/initial.page.dart';
+import 'package:taptodontdrink/pages/winner_page.dart';
 
 import 'bloc/players-bloc.dart';
 
@@ -21,9 +21,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<PlayersGameBloc>.value(
           value: PlayersGameBloc(),
-        ),
-        ChangeNotifierProvider<GameBloc>.value(
-          value: GameBloc(),
         ),
       ],
       child: Main(),
