@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:taptodontdrink/pages/home.page.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:taptodontdrink/pages/initial.page.dart';
+
+import 'bloc/players-bloc.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -11,16 +14,30 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<PlayersGameBloc>.value(
+          value: PlayersGameBloc(),
+        ),
+      ],
+      child: Main(),
+    );
+  }
+}
+
+class Main extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Tap To Do Not Drink',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home: HomePage(),
+      home: InitialPage(),
     );
   }
 }
