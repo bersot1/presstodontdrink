@@ -78,7 +78,7 @@ class InitialPage extends StatelessWidget {
                       ),
                       style: TextStyle(
                           fontSize: 24,
-                          color: Theme.of(context).primaryColor,
+                          color: Colors.red,
                           fontFamily: "Big Shoulders Display"),
                     ),
                     SizedBox(
@@ -105,7 +105,7 @@ class InitialPage extends StatelessWidget {
                       ),
                       style: TextStyle(
                         fontSize: 24,
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.red,
                         fontFamily: "Big Shoulders Display",
                       ),
                     ),
