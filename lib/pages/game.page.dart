@@ -21,116 +21,126 @@ class GamePage extends StatelessWidget {
 
     return bloc.winner
         ? Winner()
-        : Scaffold(
-            backgroundColor: Theme.of(context).primaryColor,
-            body: SingleChildScrollView(
-              child: Container(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: 15,
-                            ),
-                            height: 200,
-                            width: 300,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.8),
-                              borderRadius: BorderRadius.circular(80),
-                            ),
-                            child: FlatButton(
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                      top: 50,
+        : Center(
+            child: Scaffold(
+              backgroundColor: Theme.of(context).primaryColor,
+              body: SingleChildScrollView(
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(
+                                top: 30,
+                              ),
+                              height: 200,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.8),
+                                borderRadius: BorderRadius.circular(80),
+                              ),
+                              child: FlatButton(
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                        top: 50,
+                                      ),
+                                      child: Text(
+                                        //bloc.playerA,
+                                        bloc.playerA,
+                                        style: TextStyle(
+                                          fontSize: 50,
+                                          fontFamily: "Big Shoulders Display",
+                                        ),
+                                      ),
                                     ),
-                                    child: Text(
-                                      //bloc.playerA,
-                                      bloc.playerA,
+                                    Icon(Icons.arrow_forward),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  bloc.tapButton(0.15);
+                                },
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          top: 100,
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                ImageIcon(
+                                  AssetImage(
+                                    "assets/icon/beer.png",
+                                  ),
+                                )
+                              ],
+                            ),
+                            LinearProgressIndicator(
+                              value: bloc.progressBar,
+                              backgroundColor: Colors.red,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                ImageIcon(
+                                  AssetImage(
+                                    "assets/icon/beer.png",
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top: 65),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              height: 200,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.8),
+                                borderRadius: BorderRadius.circular(80),
+                              ),
+                              child: FlatButton(
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                        top: 50,
+                                      ),
+                                      child: Icon(Icons.arrow_back),
+                                    ),
+                                    Text(
+                                      bloc.playerB,
                                       style: TextStyle(
                                           fontSize: 50,
                                           fontFamily: "Big Shoulders Display"),
                                     ),
-                                  ),
-                                  Icon(Icons.arrow_forward),
-                                ],
+                                  ],
+                                ),
+                                onPressed: () {
+                                  bloc.tapButton(-0.15);
+                                },
                               ),
-                              onPressed: () {
-                                bloc.tapButton(0.15);
-                              },
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(
-                        top: 100,
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Icon(
-                                Icons.local_drink,
-                              ),
-                            ],
-                          ),
-                          LinearProgressIndicator(
-                            value: bloc.progressBar,
-                            backgroundColor: Colors.red,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[Icon(Icons.local_drink)],
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 65),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.all(30),
-                            height: 200,
-                            width: 300,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.8),
-                              borderRadius: BorderRadius.circular(80),
-                            ),
-                            child: FlatButton(
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                      top: 50,
-                                    ),
-                                    child: Icon(Icons.arrow_back),
-                                  ),
-                                  Text(
-                                    bloc.playerB,
-                                    style: TextStyle(
-                                        fontSize: 50,
-                                        fontFamily: "Big Shoulders Display"),
-                                  ),
-                                ],
-                              ),
-                              onPressed: () {
-                                bloc.tapButton(-0.15);
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

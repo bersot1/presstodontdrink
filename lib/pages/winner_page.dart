@@ -53,7 +53,7 @@ class Winner extends StatelessWidget {
                     color: Colors.black26,
                   ),
                   child: FlatButton(
-                    child: Text("Trocar Guerreiros"),
+                    child: Text("Change Players"),
                     onPressed: () {
                       bloc.changeWarrios();
                       Navigator.push(
@@ -73,7 +73,7 @@ class Winner extends StatelessWidget {
                     color: Colors.black26,
                   ),
                   child: FlatButton(
-                    child: Text("Beber Mais"),
+                    child: Text("Drink More"),
                     onPressed: () {
                       bloc.drinkMore();
                     },
@@ -102,7 +102,7 @@ class Winner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Vire o copo da pessoa a sua esquerda",
+                  "DRINK",
                   style: TextStyle(
                     fontFamily: "Big Shoulders Display",
                     fontSize: 35,
