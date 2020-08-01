@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:taptodontdrink/pages/initial.page.dart';
-import 'package:taptodontdrink/pages/winner_page.dart';
+import './blocs/playersGameBloc.dart';
 
-import 'bloc/players-bloc.dart';
+import './pages/welcome.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-  ));
-
   runApp(MyApp());
 }
 
@@ -29,16 +24,29 @@ class MyApp extends StatelessWidget {
 }
 
 class Main extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    precacheImage(AssetImage("assets/icon/TapDrink.png"), context);
+    precacheImage(AssetImage("assets/images/tapdrink.jpg"), context);
+    precacheImage(AssetImage("assets/images/15game.jpg"), context);
+
     return MaterialApp(
-      title: 'Tap To Do Not Drink',
+      title: 'TapDrink',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: InitialPage(),
+      home: AnnotatedRegion<SystemUiOverlayStyle>(
+        child: WelcomePage(),
+        value: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.light,
+        ),
+      ),
     );
   }
 }
